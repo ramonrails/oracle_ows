@@ -1,6 +1,10 @@
-require "oracle_ows/version"
+# frozen_string_literal: true
+
+require 'oracle_ows/version'
+require 'oracle_ows/base'
+require 'oracle_ows/housekeeping'
 
 module OracleOws
   class Error < StandardError; end
-  # Your code goes here...
+  # Error handling code goes here...
 end

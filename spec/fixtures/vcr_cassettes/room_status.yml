@@ -1,0 +1,1252 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://130.61.16.108:8080/OWS_WS_51/HouseKeeping.asmx?WSDL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Sun, 19 Jul 2020 19:01:34 GMT
+      Content-Length:
+      - '91970'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\"
+        xmlns:s3=\"http://webservices.micros.com/og/4.3/HouseKeeping/\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\" xmlns:tns=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl\"
+        xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:s1=\"http://webservices.micros.com/og/4.3/HotelCommon/\"
+        xmlns:s4=\"http://webservices.micros.com/og/4.3/Core/\" xmlns:s=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:s2=\"http://webservices.micros.com/og/4.3/Common/\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\"
+        xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" xmlns:s5=\"http://webservices.micros.com/og/4.3/Name/\"
+        targetNamespace=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl\"
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n  <wsdl:types>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl\">\r\n
+        \     <s:import namespace=\"http://webservices.micros.com/og/4.3/HotelCommon/\"
+        />\r\n      <s:import namespace=\"http://webservices.micros.com/og/4.3/Common/\"
+        />\r\n      <s:import namespace=\"http://webservices.micros.com/og/4.3/HouseKeeping/\"
+        />\r\n      <s:element name=\"FetchHouseKeepingStatisticsRequest\">\r\n        <s:complexType>\r\n
+        \         <s:annotation>\r\n            <s:appinfo>\r\n              <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\"
+        type=\"s1:HotelReference\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"IncludePseudoMeetingRooms\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchHouseKeepingStatisticsResponse\">\r\n
+        \       <s:complexType>\r\n          <s:annotation>\r\n            <s:appinfo>\r\n
+        \             <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseKeepingStatisticsList\"
+        type=\"s3:ArrayOfHouseKeepingStatistics\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchHouseStatusRequest\">\r\n
+        \       <s:complexType>\r\n          <s:annotation>\r\n            <s:appinfo>\r\n
+        \             <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\"
+        type=\"s1:HotelReference\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomClass\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RoomType\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseStatusDate\" type=\"s:dateTime\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"IncludeDayUseForMaxOccupied\"
+        type=\"s:boolean\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"FetchHouseStatusResponse\">\r\n
+        \       <s:complexType>\r\n          <s:annotation>\r\n            <s:appinfo>\r\n
+        \             <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseStatusList\"
+        type=\"s3:ArrayOfHouseStatus\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"FetchHouseKeepingDiscrepanciesRequest\">\r\n
+        \       <s:complexType>\r\n          <s:annotation>\r\n            <s:appinfo>\r\n
+        \             <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\"
+        type=\"s1:HotelReference\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Floor\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RoomClass\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Room\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"IncludeSleeps\" type=\"s:boolean\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"IncludeSkips\"
+        type=\"s:boolean\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"IncludePersonDiscrepancy\" type=\"s:boolean\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"IncludeDueOutOnly\" type=\"s:boolean\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"FetchHouseKeepingDiscrepenciesResponse\">\r\n        <s:complexType>\r\n
+        \         <s:annotation>\r\n            <s:appinfo>\r\n              <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseKeepingDiscrepancies\"
+        type=\"s3:ArrayOfHouseKeepingDiscrepancy\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"UpdateHouseKeepingDiscrepanciesRequest\">\r\n
+        \       <s:complexType>\r\n          <s:annotation>\r\n            <s:appinfo>\r\n
+        \             <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\"
+        type=\"s1:HotelReference\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HouseKeepingDiscrepancy\" type=\"s3:HouseKeepingDiscrepancy\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"UpdateHouseKeepingDiscrepenciesResponse\">\r\n        <s:complexType>\r\n
+        \         <s:annotation>\r\n            <s:appinfo>\r\n              <keepNamespaceDeclarations>xsn</keepNamespaceDeclarations>\r\n
+        \           </s:appinfo>\r\n          </s:annotation>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"CreateRoomMaintenanceRequest\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HotelReference\" type=\"s1:HotelReference\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\" type=\"s3:RoomMaintenanceRequestType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"CreateRoomMaintenanceResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"MaintenanceId\" type=\"s2:UniqueID\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomMaintenance\" type=\"s3:RoomMaintenanceResponseType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ChangeRoomMaintenanceRequest\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HotelReference\" type=\"s1:HotelReference\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\" type=\"s3:RoomMaintenanceChangeType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ChangeRoomMaintenanceResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RoomMaintenance\" type=\"s3:RoomMaintenanceResponseType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ResolveRoomMaintenanceRequest\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HotelReference\" type=\"s1:HotelReference\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\" type=\"s3:RoomMaintenanceResolveType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ResolveRoomMaintenanceResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"MaintenanceId\" type=\"s2:UniqueID\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"UnResolveRoomMaintenanceRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\"
+        type=\"s2:UniqueID\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"UnResolveRoomMaintenanceResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\"
+        type=\"s2:UniqueID\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"DeleteRoomMaintenanceRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\"
+        type=\"s2:UniqueID\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"DeleteRoomMaintenanceResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"FetchRoomMaintenanceRequest\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HotelReference\" type=\"s1:HotelReference\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\" type=\"s3:RoomMaintenanceSearchType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"FetchRoomMaintenanceResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RoomMaintenance\" type=\"s3:ArrayOfRoomMaintenanceType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"UpdateHouseKeepingRoomStatusRequest\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HotelReference\" type=\"s1:HotelReference\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\" type=\"s3:HouseKeepingStatusChangeType\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"UpdateHouseKeepingRoomStatusResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchOOSRoomsRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\"
+        type=\"s3:HouseKeepingOOSSearchType\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"FetchOOSRoomsResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"OOS\"
+        type=\"s3:HouseKeepingOOSType\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"FetchHouseKeepingRoomTaskStatusRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\"
+        type=\"s3:HouseKeepingRoomTaskStatusSearchType\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchHouseKeepingRoomTaskStatusResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseKeepingRoomTaskStatus\"
+        type=\"s3:HouseKeepingRoomTaskStatusType\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchHouseKeepingRoomStatusRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\"
+        type=\"s3:HouseKeepingRoomStatusSearchType\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchHouseKeepingRoomStatusResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseKeepingRoomStatus\"
+        type=\"s3:HouseKeepingRoomStatusType\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"FetchRoomMaintenanceImagesRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\"
+        type=\"s3:RoomMaintenanceImageSearchType\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"FetchRoomMaintenanceImagesResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomMaintenanceImageInfo\"
+        type=\"s3:RoomMaintenanceImageInfoType\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"DeleteRoomMaintenanceImagesRequest\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HotelReference\" type=\"s1:HotelReference\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Criteria\"
+        type=\"s3:RoomMaintenanceImageDeleteType\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"DeleteRoomMaintenanceImagesResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Result\" type=\"s2:ResultStatus\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \   </s:schema>\r\n    <s:schema elementFormDefault=\"qualified\" targetNamespace=\"http://webservices.micros.com/og/4.3/HotelCommon/\">\r\n
+        \     <s:import namespace=\"http://webservices.micros.com/og/4.3/Common/\"
+        />\r\n      <s:complexType name=\"HotelReference\">\r\n        <s:simpleContent>\r\n
+        \         <s:extension base=\"s:string\">\r\n            <s:attribute name=\"chainCode\"
+        type=\"s:string\" />\r\n            <s:attribute name=\"hotelCode\" type=\"s:string\"
+        />\r\n          </s:extension>\r\n        </s:simpleContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"GDSResultStatus\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"s2:ResultStatus\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"GDSError\"
+        type=\"s1:GDSError\" />\r\n            </s:sequence>\r\n          </s:extension>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"GDSError\">\r\n        <s:simpleContent>\r\n          <s:extension
+        base=\"s:string\">\r\n            <s:attribute name=\"errorCode\" type=\"s:string\"
+        />\r\n            <s:attribute name=\"elementId\" type=\"s:string\" />\r\n
+        \         </s:extension>\r\n        </s:simpleContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfRoomFeature\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Features\"
+        type=\"s1:RoomFeature\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"RoomFeature\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"FeatureID\" type=\"s:double\" />\r\n
+        \       </s:sequence>\r\n        <s:attribute name=\"Feature\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"Description\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"AttachPreferenceToProfile\" type=\"s:boolean\" />\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"RoomStatus\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Features\" type=\"s1:ArrayOfRoomFeature\"
+        />\r\n        </s:sequence>\r\n        <s:attribute name=\"NextReservationDate\"
+        type=\"s:date\" />\r\n        <s:attribute name=\"RoomStatus\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"RoomStatusToDate\" type=\"s:date\" />\r\n
+        \       <s:attribute name=\"FrontOfficeStatus\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"RoomStatusFromDate\" type=\"s:date\" />\r\n        <s:attribute name=\"OccupancyCondition\"
+        type=\"s:string\" />\r\n        <s:attribute name=\"HouseKeepingStatus\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"HouseKeepingInspectionFlag\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"TurnDownYn\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"ServiceStatus\" type=\"s:string\" />\r\n        <s:attribute name=\"RoomNumber\"
+        type=\"s:string\" />\r\n        <s:attribute name=\"RoomType\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"RoomDescription\" type=\"s:string\" />\r\n
+        \       <s:attribute name=\"Floor\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"ReservationStatus\" type=\"s:string\" />\r\n        <s:attribute name=\"RoomClass\"
+        type=\"s:string\" />\r\n        <s:attribute name=\"RoomCondition\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"HouseKeepingSection\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"MaxOccupancy\" type=\"s:int\" />\r\n        <s:attribute
+        name=\"PseudoYN\" type=\"s:string\" />\r\n        <s:attribute name=\"LastCheckOutDate\"
+        type=\"s:date\" />\r\n      </s:complexType>\r\n    </s:schema>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://webservices.micros.com/og/4.3/Common/\">\r\n
+        \     <s:complexType name=\"ResultStatus\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Text\" type=\"s2:ArrayOfText\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"IDs\" type=\"s2:ArrayOfIDPair\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"OperaErrorCode\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n        <s:attribute name=\"resultStatusFlag\"
+        type=\"s2:ResultStatusFlag\" />\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ArrayOfText\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"TextElement\" type=\"s2:Text\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"Text\">\r\n        <s:simpleContent>\r\n
+        \         <s:extension base=\"s:normalizedString\">\r\n            <s:attribute
+        name=\"formatted\" type=\"s:boolean\" />\r\n            <s:attribute name=\"language\"
+        type=\"s:language\" />\r\n          </s:extension>\r\n        </s:simpleContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfIDPair\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"IDPair\" type=\"s2:IDPair\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"IDPair\">\r\n        <s:attribute name=\"idType\"
+        type=\"s:string\" />\r\n        <s:attribute name=\"operaId\" type=\"s:long\"
+        />\r\n        <s:attribute name=\"externalId\" type=\"s:string\" />\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"ResultStatusFlag\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"FAIL\" />\r\n          <s:enumeration value=\"SUCCESS\"
+        />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n      <s:complexType
+        name=\"PersonName\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"nameTitle\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"firstName\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"middleName\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"lastName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"nameSuffix\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"accountName2\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"accountName3\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"profession\" type=\"s:string\" />\r\n        </s:sequence>\r\n        <s:attribute
+        name=\"nameOrdered\" type=\"s:string\" />\r\n        <s:attribute name=\"familiarName\"
+        type=\"s:string\" />\r\n        <s:attribute name=\"active\" type=\"s:boolean\"
+        />\r\n      </s:complexType>\r\n      <s:complexType name=\"FileData\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FileContents\" type=\"s:base64Binary\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Id\" type=\"s2:UniqueID\" />\r\n        </s:sequence>\r\n
+        \       <s:attribute name=\"fileType\" type=\"s2:FileType\" use=\"required\"
+        />\r\n        <s:attribute name=\"folioView\" type=\"s:integer\" />\r\n        <s:attribute
+        name=\"fileName\" type=\"s:string\" />\r\n        <s:attribute name=\"CreateDateTime\"
+        type=\"s:dateTime\" />\r\n      </s:complexType>\r\n      <s:complexType name=\"UniqueID\">\r\n
+        \       <s:simpleContent>\r\n          <s:extension base=\"s:string\">\r\n
+        \           <s:attribute name=\"type\" type=\"s2:UniqueIDType\" use=\"required\"
+        />\r\n            <s:attribute name=\"source\" type=\"s:string\" />\r\n          </s:extension>\r\n
+        \       </s:simpleContent>\r\n      </s:complexType>\r\n      <s:simpleType
+        name=\"UniqueIDType\">\r\n        <s:restriction base=\"s:string\">\r\n          <s:enumeration
+        value=\"EXTERNAL\" />\r\n          <s:enumeration value=\"INTERNAL\" />\r\n
+        \         <s:enumeration value=\"CANCELLATIONEXTERNAL\" />\r\n          <s:enumeration
+        value=\"CANCELLATIONINTERNAL\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:simpleType name=\"FileType\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"PDF\" />\r\n          <s:enumeration value=\"TXT\"
+        />\r\n          <s:enumeration value=\"PNG\" />\r\n          <s:enumeration
+        value=\"JPG\" />\r\n          <s:enumeration value=\"GIF\" />\r\n        </s:restriction>\r\n
+        \     </s:simpleType>\r\n      <s:complexType name=\"ArrayOfUniqueID\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"UniqueID\" type=\"s2:UniqueID\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfString\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Code\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n    </s:schema>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://webservices.micros.com/og/4.3/HouseKeeping/\">\r\n
+        \     <s:import namespace=\"http://webservices.micros.com/og/4.3/Common/\"
+        />\r\n      <s:import namespace=\"http://webservices.micros.com/og/4.3/HotelCommon/\"
+        />\r\n      <s:complexType name=\"ArrayOfHouseKeepingStatistics\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"HouseKeepingStatistics\"
+        type=\"s3:HouseKeepingStatistics\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"HouseKeepingStatistics\">\r\n        <s:simpleContent>\r\n
+        \         <s:extension base=\"s:int\">\r\n            <s:attribute name=\"description\"
+        type=\"s:string\" />\r\n          </s:extension>\r\n        </s:simpleContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfHouseStatus\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"HouseStatus\" type=\"s3:HouseStatus\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"HouseStatus\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomSummaryStatus\"
+        type=\"s3:RoomSummaryStatus\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ActivityStatus\" type=\"s3:ActivityStatus\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryStatus\" type=\"s3:ComplimentaryStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseUseStatus\"
+        type=\"s3:HouseUseStatus\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"EndOfDayProjectionStatus\" type=\"s3:EndOfDayProjectionStatus\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseRoomStatus\"
+        type=\"s3:HouseRoomStatus\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TurnDownStatus\" type=\"s3:TurnDownStatus\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"RoomSummaryStatus\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TotalPhysicalRooms\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"OutofOrder\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TotalRoomstoSell\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"OutofService\"
+        type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ActivityStatus\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"StayoversRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"StayoversPersons\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"StayoversVIP\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DeparturesExpectedRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DeparturesExpectedPersons\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DeparturesExpectedVIP\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DeparturesActualRoom\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DeparturesActualPersons\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DeparturesActualVIP\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ArrivalsExpectedRoom\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ArrivalsExpectedPersons\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ArrivalsExpectedVIP\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ArrivalsActualRoom\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ArrivalsActualPersons\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ArrivalsActualVIP\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ExtendedStaysRoom\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ExtendedStaysPersons\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ExtendedStaysVIP\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"EarlyDeparturesRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"EarlyDeparturesPersons\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"EarlyDeparturesVIP\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DayUseRoomsRoom\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DayUseRoomsPersons\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DayUseRoomsVIP\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"WalkInsRoom\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"WalkInsPersons\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"WalkInsVIP\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DayofArrivalCancelsRoom\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DayofArrivalCancelsPersons\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DayofArrivalCancelsVIP\" type=\"s:int\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ComplimentaryStatus\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ComplimentaryArrivalsRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryArrivalsPersons\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryArrivalsVIP\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ComplimentaryStayOversRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryStayOversPersons\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryStayOversVIP\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ComplimentaryDeparturesRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryDeparturesPersons\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplimentaryDeparturesVIP\"
+        type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"HouseUseStatus\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"HouseUseArrivalsRoom\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseUseArrivalsPersons\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseUseArrivalsVIP\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HouseUseStayoversRoom\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"HouseUseStayoversPersons\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseUseStayoversVIP\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseUseDeparturesRoom\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HouseUseDeparturesPersons\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseUseDeparturesVIP\" type=\"s:int\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"EndOfDayProjectionStatus\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MinAvailableTonight\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaxOccupiedTonightRoom\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaxOccupiedTonightPersons\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MaxOccupiedTonightVIP\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaxPertOccupiedTonight\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaxPertOccupiedTonightDayUse\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"BlocksnotPickedUp\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"IndividualsRoom\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"IndividualsPersons\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"IndividualsVIP\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GroupsandBlocksRoom\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"GroupsandBlocksPersons\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GroupsandBlocksVIP\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RoomRevenue\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomRevenueAvg\" type=\"s:double\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"HouseRoomStatus\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"InspectedRoomVacant\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"InspectedRoomOccupied\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CleanRoomVacant\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CleanRoomOccupied\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DirtyRoomVacant\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DirtyRoomOccupied\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"PickupRoomVacant\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"PickupRoomOccupied\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"OutofOrderRoomVacant\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"OutofOrderRoomOccupied\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"OutofServiceRoomVacant\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"OutofServiceRoomOccupied\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"QueueRoom\"
+        type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"TurnDownStatus\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"TurnDownRequired\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TurnDownNotRequired\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TurnDownCompleted\"
+        type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ArrayOfHouseKeepingDiscrepancy\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"HouseKeepingDiscrepancies\"
+        type=\"s3:HouseKeepingDiscrepancy\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"HouseKeepingDiscrepancy\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomNumber\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomType\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomStatus\" type=\"s3:HouseKeepingRoomStatus\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HKStatus\" type=\"s3:HouseKeepingFOStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"FOStatus\"
+        type=\"s3:HouseKeepingFOStatus\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ReservationStatus\" type=\"s3:HouseKeepingReservationStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"FOPersons\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"HKPersons\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Discrepancy\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"PersonName\" type=\"s2:PersonName\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:simpleType
+        name=\"HouseKeepingRoomStatus\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"CLEAN\" />\r\n          <s:enumeration value=\"DIRTY\"
+        />\r\n          <s:enumeration value=\"OUTOFORDER\" />\r\n          <s:enumeration
+        value=\"PICKUP\" />\r\n          <s:enumeration value=\"INSPECTED\" />\r\n
+        \         <s:enumeration value=\"OUTOFSERVICE\" />\r\n        </s:restriction>\r\n
+        \     </s:simpleType>\r\n      <s:simpleType name=\"HouseKeepingFOStatus\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"VACANT\"
+        />\r\n          <s:enumeration value=\"OCCUPIED\" />\r\n        </s:restriction>\r\n
+        \     </s:simpleType>\r\n      <s:simpleType name=\"HouseKeepingReservationStatus\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"STAYOVER\"
+        />\r\n          <s:enumeration value=\"ARRIVED\" />\r\n          <s:enumeration
+        value=\"DUEOUT\" />\r\n          <s:enumeration value=\"DEPARTURES\" />\r\n
+        \         <s:enumeration value=\"DEPARTED\" />\r\n          <s:enumeration
+        value=\"ARRIVAL\" />\r\n          <s:enumeration value=\"EXPECTED\" />\r\n
+        \         <s:enumeration value=\"RESERVED\" />\r\n          <s:enumeration
+        value=\"DAYUSE\" />\r\n          <s:enumeration value=\"ARRIVEDANDSTAYOVER\"
+        />\r\n          <s:enumeration value=\"VACANT\" />\r\n          <s:enumeration
+        value=\"NOTRESERVED\" />\r\n          <s:enumeration value=\"DUEOUTANDARRIVAL\"
+        />\r\n          <s:enumeration value=\"ARRIVEDANDDAYUSEANDDUEOUT\" />\r\n
+        \       </s:restriction>\r\n      </s:simpleType>\r\n      <s:complexType
+        name=\"RoomMaintenanceRequestType\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Maintenance\" type=\"s3:MaintenanceType\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomNumber\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"AssignedUserInfo\" type=\"s3:AssignedUserType\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"MaintenanceType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaintenanceCode\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Remarks\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceImages\" type=\"s3:ArrayOfFileData\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ArrayOfFileData\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"MaintenanceImage\" type=\"s2:FileData\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"RoomMaintenanceType\">\r\n        <s:complexContent mixed=\"false\">\r\n
+        \         <s:extension base=\"s3:MaintenanceType\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\"
+        type=\"s2:UniqueID\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomNumber\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ResolveMaintenanceInfo\" type=\"s3:ResolveMaintenanceInfoType\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"AssignedUserInfo\"
+        type=\"s3:AssignedUserType\" />\r\n            </s:sequence>\r\n            <s:attribute
+        name=\"CreateDateTime\" type=\"s:dateTime\" />\r\n            <s:attribute
+        name=\"CreatorID\" type=\"s:string\" />\r\n            <s:attribute name=\"LastModifyDateTime\"
+        type=\"s:dateTime\" />\r\n            <s:attribute name=\"LastModifierID\"
+        type=\"s:string\" />\r\n            <s:attribute name=\"PurgeDate\" type=\"s:date\"
+        />\r\n          </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ResolveMaintenanceInfoType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ResolvedByUser\"
+        type=\"s2:UniqueID\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ResolvedByUserName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ResolvedDate\" type=\"s:dateTime\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ResolvedNotes\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"AssignedUserType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"AssignedToUser\" type=\"s2:UniqueID\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"AssignedToUserName\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"AssignedByUser\" type=\"s2:UniqueID\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"AssignedByUserName\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"AssignedDate\" type=\"s:dateTime\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ExpectedByDate\" type=\"s:dateTime\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"RoomMaintenanceResponseType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaintenanceId\" type=\"s2:UniqueID\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"MaintenanceImagesIDList\" type=\"s2:ArrayOfUniqueID\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"RoomMaintenanceChangeType\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Maintenance\" type=\"s3:MaintenanceType\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\"
+        type=\"s2:UniqueID\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomNumber\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"AssignedUserInfo\" type=\"s3:AssignedUserType\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"RoomMaintenanceResolveType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaintenanceId\" type=\"s2:UniqueID\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ResolveMaintenanceInfo\" type=\"s3:ResolveMaintenanceInfoType\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"RoomMaintenanceSearchType\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\" type=\"s2:UniqueID\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceCode\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomNumber\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ResolvedBy\" type=\"s2:UniqueID\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ResolvedDate\" type=\"s:dateTime\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"AssignedUserInfo\"
+        type=\"s3:AssignedUserType\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaintenanceStatus\" type=\"s3:HouseKeepingMaintenanceStatus\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:simpleType name=\"HouseKeepingMaintenanceStatus\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"ALL\"
+        />\r\n          <s:enumeration value=\"RESOLVED\" />\r\n          <s:enumeration
+        value=\"UNRESOLVED\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:complexType name=\"ArrayOfRoomMaintenanceType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"RoomMaintenanceType\"
+        type=\"s3:RoomMaintenanceType\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"HouseKeepingStatusChangeType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseKeepingStatus\"
+        type=\"s3:ArrayOfHouseKeepingStatus\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfHouseKeepingStatus\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"HouseKeepingStatus\"
+        type=\"s3:HouseKeepingStatus\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"HouseKeepingStatus\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomNo\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomType\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomStatus\" type=\"s3:HouseKeepingRoomStatus\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"FOStatus\" type=\"s3:HouseKeepingFOStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HKStatus\"
+        type=\"s3:HouseKeepingFOStatus\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ReservationStatus\" type=\"s3:HouseKeepingReservationStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomClass\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Floor\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Section\" type=\"s3:HouseKeepingSection\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Features\" type=\"s1:ArrayOfRoomFeature\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:simpleType
+        name=\"HouseKeepingSection\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"AM\" />\r\n          <s:enumeration value=\"PM\"
+        />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n      <s:complexType
+        name=\"HouseKeepingOOSSearchType\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ForDate\" type=\"s:date\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Room\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomClass\" type=\"s2:ArrayOfString\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomType\"
+        type=\"s2:ArrayOfString\" />\r\n        </s:sequence>\r\n        <s:attribute
+        name=\"outOfOrder\" type=\"s:boolean\" />\r\n        <s:attribute name=\"outOfService\"
+        type=\"s:boolean\" />\r\n      </s:complexType>\r\n      <s:complexType name=\"HouseKeepingOOSType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Room\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RoomType\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Status\" type=\"s3:HouseKeepingOOSStatus\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"StartDate\"
+        type=\"s:date\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"EndDate\" type=\"s:date\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ReturnStatus\" type=\"s3:HouseKeepingRoomStatus\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Reason\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Remarks\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"HouseKeepingOOSStatus\">\r\n        <s:restriction
+        base=\"s:string\">\r\n          <s:enumeration value=\"OUTOFORDER\" />\r\n
+        \         <s:enumeration value=\"OUTOFSERVICE\" />\r\n        </s:restriction>\r\n
+        \     </s:simpleType>\r\n      <s:complexType name=\"HouseKeepingRoomTaskStatusSearchType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ForDate\" type=\"s:date\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"FromRoom\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ToRoom\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"HouseKeepingRoomTaskStatusType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"RoomTaskStatus\" type=\"s3:RoomTaskStatus\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"RoomTaskStatus\">\r\n        <s:complexContent mixed=\"false\">\r\n
+        \         <s:extension base=\"s1:RoomStatus\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"ReservationStatus\"
+        type=\"s3:RoomReservationStatusType\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"TaskStatus\" type=\"s3:TaskStatusType\" />\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HouseKeepingCredits\"
+        type=\"s3:ArrayOfHousekeepingCreditsType\" />\r\n            </s:sequence>\r\n
+        \           <s:attribute name=\"DiscrepancyStatus\" type=\"s:string\" />\r\n
+        \           <s:attribute name=\"MaintenanceCount\" type=\"s:int\" />\r\n          </s:extension>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"RoomReservationStatusType\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ReservationIDList\" type=\"s2:ArrayOfUniqueID\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Profile\"
+        type=\"s3:ResvProfileType\" />\r\n        </s:sequence>\r\n        <s:attribute
+        name=\"RoomNumber\" type=\"s:string\" />\r\n        <s:attribute name=\"ArrivalDate\"
+        type=\"s:date\" />\r\n        <s:attribute name=\"DepartureDate\" type=\"s:date\"
+        />\r\n        <s:attribute name=\"ArrivalTime\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"Adults\" type=\"s:int\" />\r\n        <s:attribute name=\"Children\"
+        type=\"s:int\" />\r\n        <s:attribute name=\"QueueReservation\" type=\"s:boolean\"
+        />\r\n        <s:attribute name=\"QueueDuration\" type=\"s:string\" />\r\n
+        \       <s:attribute name=\"DepartureTime\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"GuestNoteExists\" type=\"s:boolean\" />\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ResvProfileType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ProfileIDList\"
+        type=\"s2:ArrayOfUniqueID\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"PersonName\" type=\"s2:PersonName\" />\r\n        </s:sequence>\r\n
+        \       <s:attribute name=\"VIPCode\" type=\"s:string\" />\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"TaskStatusType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TaskSheetNumber\"
+        type=\"s:long\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TaskCompletedDate\" type=\"s:date\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"TaskCodes\" type=\"s3:ArrayOfHousekeepingFacilityTaskCodeType\"
+        />\r\n        </s:sequence>\r\n        <s:attribute name=\"RoomNumber\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"TaskCode\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"TaskDate\" type=\"s:date\" />\r\n        <s:attribute name=\"EmployeeID\"
+        type=\"s:string\" />\r\n        <s:attribute name=\"EmployeeName\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"EmployeeInstructions\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"Credits\" type=\"s:double\" />\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfHousekeepingFacilityTaskCodeType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"TaskCode\" type=\"s3:HousekeepingFacilityTaskCodeType\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"HousekeepingFacilityTaskCodeType\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"s3:HousekeepingTaskCodeType\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FacilityCodes\" type=\"s3:ArrayOfFacilityCodeType\" />\r\n            </s:sequence>\r\n
+        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"HousekeepingTaskCodeType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Description\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Instructions\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"FacilityDepartureTask\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"LinenChange\" type=\"s:boolean\" />\r\n
+        \       </s:sequence>\r\n        <s:attribute name=\"Code\" type=\"s:string\"
+        />\r\n      </s:complexType>\r\n      <s:complexType name=\"ArrayOfFacilityCodeType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"FacilityCode\" type=\"s3:FacilityCodeType\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"FacilityCodeType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Description\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Quantity\" type=\"s:int\" />\r\n        </s:sequence>\r\n
+        \       <s:attribute name=\"Code\" type=\"s:string\" />\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfHousekeepingCreditsType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Credits\"
+        type=\"s3:HousekeepingCreditsType\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"HousekeepingCreditsType\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Type\" type=\"s3:HousekeepingCreditsDefinitionType\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumberOfCredits\"
+        type=\"s:integer\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"HousekeepingCreditsDefinitionType\">\r\n        <s:restriction
+        base=\"s:string\">\r\n          <s:enumeration value=\"Departure\" />\r\n
+        \         <s:enumeration value=\"Pickup\" />\r\n          <s:enumeration value=\"Turndown\"
+        />\r\n          <s:enumeration value=\"StayOver\" />\r\n          <s:enumeration
+        value=\"FacilityTask\" />\r\n          <s:enumeration value=\"Travelling\"
+        />\r\n          <s:enumeration value=\"Total\" />\r\n        </s:restriction>\r\n
+        \     </s:simpleType>\r\n      <s:complexType name=\"HouseKeepingRoomStatusSearchType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FromRoom\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ToRoom\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomNumberList\" type=\"s2:ArrayOfString\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomClassList\"
+        type=\"s2:ArrayOfString\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomTypeList\" type=\"s2:ArrayOfString\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomFloorList\" type=\"s2:ArrayOfString\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HKSectionList\"
+        type=\"s2:ArrayOfString\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RoomStatusList\" type=\"s3:ArrayOfHouseKeepingRoomStatus\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"HKStatusList\" type=\"s3:ArrayOfHouseKeepingFOStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"FOStatusList\"
+        type=\"s3:ArrayOfHouseKeepingFOStatus\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ReservationStatusList\" type=\"s3:ArrayOfHouseKeepingReservationStatus\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"RoomFeaturesList\"
+        type=\"s1:ArrayOfRoomFeature\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfHouseKeepingRoomStatus\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Code\"
+        type=\"s3:HouseKeepingRoomStatus\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfHouseKeepingFOStatus\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Code\"
+        type=\"s3:HouseKeepingFOStatus\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfHouseKeepingReservationStatus\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Code\"
+        type=\"s3:HouseKeepingReservationStatus\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"HouseKeepingRoomStatusType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"HKRoomStatus\" type=\"s1:RoomStatus\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"RoomMaintenanceImageSearchType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MaintenanceId\" type=\"s2:UniqueID\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"MaintenanceImageId\" type=\"s2:UniqueID\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"RoomMaintenanceImageInfoType\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Result\" type=\"s2:ResultStatus\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"MaintenanceId\" type=\"s2:UniqueID\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceImages\" type=\"s3:ArrayOfFileData\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"RoomMaintenanceImageDeleteType\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceId\" type=\"s2:UniqueID\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"MaintenanceImagesIDList\"
+        type=\"s2:ArrayOfUniqueID\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \   </s:schema>\r\n    <s:schema elementFormDefault=\"qualified\" targetNamespace=\"http://webservices.micros.com/og/4.3/Core/\">\r\n
+        \     <s:element name=\"OGHeader\" type=\"s4:OGHeader\" />\r\n      <s:complexType
+        name=\"OGHeader\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Origin\" type=\"s4:EndPoint\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Destination\" type=\"s4:EndPoint\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Intermediaries\"
+        type=\"s4:ArrayOfEndPoint\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Authentication\" type=\"s4:OGHeaderAuthentication\" />\r\n        </s:sequence>\r\n
+        \       <s:attribute name=\"transactionID\" type=\"s:string\" />\r\n        <s:attribute
+        name=\"authToken\" type=\"s:string\" />\r\n        <s:attribute name=\"timeStamp\"
+        type=\"s:dateTime\" />\r\n        <s:attribute name=\"primaryLangID\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"channelValidation\" type=\"s:boolean\" />\r\n
+        \       <s:attribute name=\"terminalID\" type=\"s:string\" />\r\n        <s:anyAttribute
+        />\r\n      </s:complexType>\r\n      <s:complexType name=\"EndPoint\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"s4:SystemID\">\r\n
+        \           <s:attribute name=\"systemType\" type=\"s:string\" />\r\n          </s:extension>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"SystemID\">\r\n        <s:attribute name=\"entityID\" type=\"s:string\"
+        />\r\n        <s:attribute name=\"organizationID\" type=\"s:string\" />\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfEndPoint\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"EndPoint\" type=\"s4:EndPoint\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"OGHeaderAuthentication\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"UserCredentials\"
+        type=\"s4:OGHeaderAuthenticationUserCredentials\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Licence\" type=\"s4:OGHeaderAuthenticationLicence\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"OGHeaderAuthenticationUserCredentials\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"UserName\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"UserPassword\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Domain\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"SecurityId\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"OGHeaderAuthenticationLicence\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Key\" type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \   </s:schema>\r\n    <s:schema elementFormDefault=\"qualified\" targetNamespace=\"http://webservices.micros.com/og/4.3/Name/\">\r\n
+        \     <s:import namespace=\"http://webservices.micros.com/og/4.3/Common/\"
+        />\r\n      <s:complexType name=\"NativeName\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"s2:PersonName\">\r\n            <s:attribute
+        name=\"languageCode\" type=\"s:string\" />\r\n          </s:extension>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n    </s:schema>\r\n
+        \ </wsdl:types>\r\n  <wsdl:message name=\"FetchHouseKeepingStatisticsSoapIn\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingStatisticsRequest\" element=\"tns:FetchHouseKeepingStatisticsRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingStatisticsSoapOut\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingStatisticsResult\" element=\"tns:FetchHouseKeepingStatisticsResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingStatisticsOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"FetchHouseStatusSoapIn\">\r\n    <wsdl:part name=\"FetchHouseStatusRequest\"
+        element=\"tns:FetchHouseStatusRequest\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchHouseStatusSoapOut\">\r\n    <wsdl:part name=\"FetchHouseStatusResult\"
+        element=\"tns:FetchHouseStatusResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchHouseStatusOGHeader\">\r\n    <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingDiscrepanciesSoapIn\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingDiscrepanciesRequest\" element=\"tns:FetchHouseKeepingDiscrepanciesRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingDiscrepanciesSoapOut\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingDiscrepanciesResult\" element=\"tns:FetchHouseKeepingDiscrepenciesResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingDiscrepanciesOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"UpdateHouseKeepingDiscrepanciesSoapIn\">\r\n    <wsdl:part
+        name=\"UpdateHouseKeepingDiscrepanciesRequest\" element=\"tns:UpdateHouseKeepingDiscrepanciesRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UpdateHouseKeepingDiscrepanciesSoapOut\">\r\n
+        \   <wsdl:part name=\"UpdateHouseKeepingDiscrepanciesResult\" element=\"tns:UpdateHouseKeepingDiscrepenciesResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UpdateHouseKeepingDiscrepanciesOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"CreateRoomMaintenanceSoapIn\">\r\n    <wsdl:part name=\"CreateRoomMaintenanceRequest\"
+        element=\"tns:CreateRoomMaintenanceRequest\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"CreateRoomMaintenanceSoapOut\">\r\n    <wsdl:part name=\"CreateRoomMaintenanceResult\"
+        element=\"tns:CreateRoomMaintenanceResponse\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"CreateRoomMaintenanceOGHeader\">\r\n    <wsdl:part
+        name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"ChangeRoomMaintenanceSoapIn\">\r\n    <wsdl:part name=\"ChangeRoomMaintenanceRequest\"
+        element=\"tns:ChangeRoomMaintenanceRequest\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"ChangeRoomMaintenanceSoapOut\">\r\n    <wsdl:part name=\"ChangeRoomMaintenanceResult\"
+        element=\"tns:ChangeRoomMaintenanceResponse\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ChangeRoomMaintenanceOGHeader\">\r\n    <wsdl:part
+        name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"ResolveRoomMaintenanceSoapIn\">\r\n    <wsdl:part name=\"ResolveRoomMaintenanceRequest\"
+        element=\"tns:ResolveRoomMaintenanceRequest\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ResolveRoomMaintenanceSoapOut\">\r\n    <wsdl:part
+        name=\"ResolveRoomMaintenanceResult\" element=\"tns:ResolveRoomMaintenanceResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ResolveRoomMaintenanceOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"UnResolveRoomMaintenanceSoapIn\">\r\n    <wsdl:part
+        name=\"UnResolveRoomMaintenanceRequest\" element=\"tns:UnResolveRoomMaintenanceRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UnResolveRoomMaintenanceSoapOut\">\r\n
+        \   <wsdl:part name=\"UnResolveRoomMaintenanceResult\" element=\"tns:UnResolveRoomMaintenanceResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UnResolveRoomMaintenanceOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"DeleteRoomMaintenanceSoapIn\">\r\n    <wsdl:part name=\"DeleteRoomMaintenanceRequest\"
+        element=\"tns:DeleteRoomMaintenanceRequest\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"DeleteRoomMaintenanceSoapOut\">\r\n    <wsdl:part name=\"DeleteRoomMaintenanceResult\"
+        element=\"tns:DeleteRoomMaintenanceResponse\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"DeleteRoomMaintenanceOGHeader\">\r\n    <wsdl:part
+        name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchRoomMaintenanceSoapIn\">\r\n    <wsdl:part name=\"FetchRoomMaintenanceRequest\"
+        element=\"tns:FetchRoomMaintenanceRequest\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchRoomMaintenanceSoapOut\">\r\n    <wsdl:part name=\"FetchRoomMaintenanceResult\"
+        element=\"tns:FetchRoomMaintenanceResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchRoomMaintenanceOGHeader\">\r\n    <wsdl:part name=\"OGHeader\"
+        element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UpdateHouseKeepingRoomStatusSoapIn\">\r\n
+        \   <wsdl:part name=\"UpdateHouseKeepingRoomStatusRequest\" element=\"tns:UpdateHouseKeepingRoomStatusRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UpdateHouseKeepingRoomStatusSoapOut\">\r\n
+        \   <wsdl:part name=\"UpdateHouseKeepingRoomStatusResult\" element=\"tns:UpdateHouseKeepingRoomStatusResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"UpdateHouseKeepingRoomStatusOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"FetchOOSRoomsSoapIn\">\r\n    <wsdl:part name=\"FetchOOSRoomsRequest\"
+        element=\"tns:FetchOOSRoomsRequest\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchOOSRoomsSoapOut\">\r\n    <wsdl:part name=\"FetchOOSRoomsResult\"
+        element=\"tns:FetchOOSRoomsResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"FetchOOSRoomsOGHeader\">\r\n    <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingRoomTaskStatusSoapIn\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingRoomTaskStatusRequest\" element=\"tns:FetchHouseKeepingRoomTaskStatusRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingRoomTaskStatusSoapOut\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingRoomTaskStatusResult\" element=\"tns:FetchHouseKeepingRoomTaskStatusResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingRoomTaskStatusOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"FetchHouseKeepingRoomStatusSoapIn\">\r\n    <wsdl:part
+        name=\"FetchHouseKeepingRoomStatusRequest\" element=\"tns:FetchHouseKeepingRoomStatusRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingRoomStatusSoapOut\">\r\n
+        \   <wsdl:part name=\"FetchHouseKeepingRoomStatusResult\" element=\"tns:FetchHouseKeepingRoomStatusResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchHouseKeepingRoomStatusOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"FetchRoomMaintenanceImagesSoapIn\">\r\n    <wsdl:part
+        name=\"FetchRoomMaintenanceImagesRequest\" element=\"tns:FetchRoomMaintenanceImagesRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchRoomMaintenanceImagesSoapOut\">\r\n
+        \   <wsdl:part name=\"FetchRoomMaintenanceImagesResult\" element=\"tns:FetchRoomMaintenanceImagesResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"FetchRoomMaintenanceImagesOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"DeleteRoomMaintenanceImagesSoapIn\">\r\n    <wsdl:part
+        name=\"DeleteRoomMaintenanceImagesRequest\" element=\"tns:DeleteRoomMaintenanceImagesRequest\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"DeleteRoomMaintenanceImagesSoapOut\">\r\n
+        \   <wsdl:part name=\"DeleteRoomMaintenanceImagesResult\" element=\"tns:DeleteRoomMaintenanceImagesResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"DeleteRoomMaintenanceImagesOGHeader\">\r\n
+        \   <wsdl:part name=\"OGHeader\" element=\"s4:OGHeader\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:portType name=\"HouseKeepingServiceSoap\">\r\n    <wsdl:operation
+        name=\"FetchHouseKeepingStatistics\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        HouseKeeping Status.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:FetchHouseKeepingStatisticsSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:FetchHouseKeepingStatisticsSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"FetchHouseStatus\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        House Status.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:FetchHouseStatusSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:FetchHouseStatusSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingDiscrepancies\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch House Keeping Discrepancies.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:FetchHouseKeepingDiscrepanciesSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:FetchHouseKeepingDiscrepanciesSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"UpdateHouseKeepingDiscrepancies\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Update
+        House Keeping Discrepencies.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:UpdateHouseKeepingDiscrepanciesSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:UpdateHouseKeepingDiscrepanciesSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"CreateRoomMaintenance\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Create
+        Room Maintenance.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:CreateRoomMaintenanceSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:CreateRoomMaintenanceSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ChangeRoomMaintenance\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Change
+        Room Maintenance.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:ChangeRoomMaintenanceSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:ChangeRoomMaintenanceSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ResolveRoomMaintenance\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Resolve
+        Room Maintenance.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:ResolveRoomMaintenanceSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:ResolveRoomMaintenanceSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"UnResolveRoomMaintenance\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">UnResolve
+        Room Maintenance.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:UnResolveRoomMaintenanceSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:UnResolveRoomMaintenanceSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"DeleteRoomMaintenance\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Delete
+        Room Maintenance.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:DeleteRoomMaintenanceSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:DeleteRoomMaintenanceSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"FetchRoomMaintenance\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        Room Maintenance.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:FetchRoomMaintenanceSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:FetchRoomMaintenanceSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"UpdateHouseKeepingRoomStatus\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Update
+        houseKeeping and room status.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:UpdateHouseKeepingRoomStatusSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:UpdateHouseKeepingRoomStatusSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"FetchOOSRooms\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        Out Of Order/Out Of Service rooms.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:FetchOOSRoomsSoapIn\" />\r\n      <wsdl:output message=\"tns:FetchOOSRoomsSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"FetchHouseKeepingRoomTaskStatus\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        room status and reservation and housekeeping tasks.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:FetchHouseKeepingRoomTaskStatusSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:FetchHouseKeepingRoomTaskStatusSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"FetchHouseKeepingRoomStatus\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        Housekeeping Room Status.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:FetchHouseKeepingRoomStatusSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:FetchHouseKeepingRoomStatusSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"FetchRoomMaintenanceImages\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Fetch
+        Room Maintenance Images.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:FetchRoomMaintenanceImagesSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:FetchRoomMaintenanceImagesSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"DeleteRoomMaintenanceImages\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Delete
+        Room Maintenance Images.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:DeleteRoomMaintenanceImagesSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:DeleteRoomMaintenanceImagesSoapOut\"
+        />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:binding name=\"HouseKeepingServiceSoap\"
+        type=\"tns:HouseKeepingServiceSoap\">\r\n    <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\"
+        />\r\n    <wsdl:operation name=\"FetchHouseKeepingStatistics\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingStatistics\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchHouseKeepingStatisticsOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:FetchHouseKeepingStatisticsOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseStatus\">\r\n      <soap:operation soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchHouseStatusOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body
+        use=\"literal\" />\r\n        <soap:header message=\"tns:FetchHouseStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingDiscrepancies\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingDiscrepancies\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:FetchHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"UpdateHouseKeepingDiscrepancies\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#UpdateHouseKeepingDiscrepancies\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:UpdateHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:UpdateHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"CreateRoomMaintenance\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#CreateRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:CreateRoomMaintenanceOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body
+        use=\"literal\" />\r\n        <soap:header message=\"tns:CreateRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ChangeRoomMaintenance\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#ChangeRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:ChangeRoomMaintenanceOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body
+        use=\"literal\" />\r\n        <soap:header message=\"tns:ChangeRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ResolveRoomMaintenance\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#ResolveRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:ResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:ResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"UnResolveRoomMaintenance\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#UnResolveRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:UnResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:UnResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"DeleteRoomMaintenance\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#DeleteRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:DeleteRoomMaintenanceOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body
+        use=\"literal\" />\r\n        <soap:header message=\"tns:DeleteRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchRoomMaintenance\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchRoomMaintenanceOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body
+        use=\"literal\" />\r\n        <soap:header message=\"tns:FetchRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"UpdateHouseKeepingRoomStatus\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#UpdateHouseKeepingRoomStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:UpdateHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:UpdateHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchOOSRooms\">\r\n      <soap:operation soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchOOSRooms\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchOOSRoomsOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body
+        use=\"literal\" />\r\n        <soap:header message=\"tns:FetchOOSRoomsOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingRoomTaskStatus\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingRoomTaskStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchHouseKeepingRoomTaskStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:FetchHouseKeepingRoomTaskStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingRoomStatus\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingRoomStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:FetchHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchRoomMaintenanceImages\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchRoomMaintenanceImages\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:FetchRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:FetchRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"DeleteRoomMaintenanceImages\">\r\n      <soap:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#DeleteRoomMaintenanceImages\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n        <soap:header message=\"tns:DeleteRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap:body use=\"literal\" />\r\n        <soap:header message=\"tns:DeleteRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \ </wsdl:binding>\r\n  <wsdl:binding name=\"HouseKeepingServiceSoap12\" type=\"tns:HouseKeepingServiceSoap\">\r\n
+        \   <soap12:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingStatistics\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingStatistics\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchHouseKeepingStatisticsOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchHouseKeepingStatisticsOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseStatus\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchHouseStatusOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body
+        use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchHouseStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingDiscrepancies\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingDiscrepancies\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"UpdateHouseKeepingDiscrepancies\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#UpdateHouseKeepingDiscrepancies\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:UpdateHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:UpdateHouseKeepingDiscrepanciesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"CreateRoomMaintenance\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#CreateRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:CreateRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:CreateRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ChangeRoomMaintenance\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#ChangeRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:ChangeRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:ChangeRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ResolveRoomMaintenance\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#ResolveRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:ResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:ResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"UnResolveRoomMaintenance\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#UnResolveRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:UnResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:UnResolveRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"DeleteRoomMaintenance\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#DeleteRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:DeleteRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:DeleteRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchRoomMaintenance\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchRoomMaintenance\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchRoomMaintenanceOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"UpdateHouseKeepingRoomStatus\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#UpdateHouseKeepingRoomStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:UpdateHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:UpdateHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchOOSRooms\">\r\n      <soap12:operation soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchOOSRooms\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchOOSRoomsOGHeader\" part=\"OGHeader\"
+        use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body
+        use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchOOSRoomsOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingRoomTaskStatus\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingRoomTaskStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchHouseKeepingRoomTaskStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchHouseKeepingRoomTaskStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchHouseKeepingRoomStatus\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingRoomStatus\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchHouseKeepingRoomStatusOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"FetchRoomMaintenanceImages\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchRoomMaintenanceImages\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:FetchRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:FetchRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"DeleteRoomMaintenanceImages\">\r\n      <soap12:operation
+        soapAction=\"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#DeleteRoomMaintenanceImages\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n        <soap12:header message=\"tns:DeleteRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n        <soap12:header message=\"tns:DeleteRoomMaintenanceImagesOGHeader\"
+        part=\"OGHeader\" use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \ </wsdl:binding>\r\n  <wsdl:service name=\"HouseKeepingService\">\r\n    <wsdl:port
+        name=\"HouseKeepingServiceSoap\" binding=\"tns:HouseKeepingServiceSoap\">\r\n
+        \     <soap:address location=\"http://130.61.16.108:8080/OWS_WS_51/HouseKeeping.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"HouseKeepingServiceSoap12\"
+        binding=\"tns:HouseKeepingServiceSoap12\">\r\n      <soap12:address location=\"http://130.61.16.108:8080/OWS_WS_51/HouseKeeping.asmx\"
+        />\r\n    </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+  recorded_at: Sun, 19 Jul 2020 19:01:36 GMT
+- request:
+    method: post
+    uri: http://130.61.16.108:8080/OWS_WS_51/HouseKeeping.asmx
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://webservices.micros.com/og/4.3/HotelCommon/"
+        xmlns:ins1="http://webservices.micros.com/og/4.3/Common/" xmlns:ins2="http://webservices.micros.com/og/4.3/HouseKeeping/"
+        xmlns:ins3="http://webservices.micros.com/og/4.3/Core/" xmlns:ins4="http://webservices.micros.com/og/4.3/Name/"
+        xmlns:cor="http://webservices.micros.com/og/4.3/Core/" xmlns:hkeep="http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl"
+        xmlns:room="http://webservices.micros.com/og/4.3/HouseKeeping/"><env:Header><cor:OGHeader><cor:Authentication><cor:UserCredentials><cor:UserName>SUPERVISOR</cor:UserName><cor:UserPassword>OPERA_1234</cor:UserPassword></cor:UserCredentials></cor:Authentication></cor:OGHeader></env:Header><env:Body><tns:FetchHouseKeepingRoomStatusRequest><tns:HotelReference
+        hotelCode="POSHIE"></tns:HotelReference><tns:Criteria><ins2:FromRoom>1</ins2:FromRoom><ins2:ToRoom>1</ins2:ToRoom><ins2:RoomStatusList><ins2:Code>CLEAN</ins2:Code></ins2:RoomStatusList><ins2:HKStatusList><ins2:Code>VACANT</ins2:Code></ins2:HKStatusList><ins2:FOStatusList><ins2:Code>VACANT</ins2:Code></ins2:FOStatusList><ins2:ReservationStatusList><ins2:Code>STAYOVER</ins2:Code></ins2:ReservationStatusList></tns:Criteria></tns:FetchHouseKeepingRoomStatusRequest></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingRoomStatus"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '1544'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Sun, 19 Jul 2020 19:01:36 GMT
+      Content-Length:
+      - '1719'
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+        xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><soap:Header><OGHeader
+        primaryLangID="E" xmlns="http://webservices.micros.com/og/4.3/Core/"><Authentication><UserCredentials><UserName>SUPERVISOR</UserName><UserPassword>OPERA_1234</UserPassword></UserCredentials></Authentication></OGHeader><wsa:Action>http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl#FetchHouseKeepingRoomStatusResponse</wsa:Action><wsa:MessageID>urn:uuid:d1b326c6-4694-41fa-a8cb-43455ddd7e2c</wsa:MessageID><wsa:RelatesTo>urn:uuid:c1a3dd92-9960-4208-9777-e4b03f2abc9a</wsa:RelatesTo><wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To><wsse:Security><wsu:Timestamp
+        wsu:Id="Timestamp-d8d3d544-1603-4de1-8838-80f4de1eebbd"><wsu:Created>2020-07-19T19:01:36Z</wsu:Created><wsu:Expires>2020-07-19T19:06:36Z</wsu:Expires></wsu:Timestamp></wsse:Security></soap:Header><soap:Body><FetchHouseKeepingRoomStatusResponse
+        xmlns="http://webservices.micros.com/ows/5.1/HouseKeeping.wsdl"><Result resultStatusFlag="FAIL"><Text
+        xmlns="http://webservices.micros.com/og/4.3/Common/"><TextElement>No matching</TextElement></Text><OperaErrorCode
+        xmlns="http://webservices.micros.com/og/4.3/Common/">NO_RECORDS_FOUND_FOR_REQUEST_CRITERIA</OperaErrorCode></Result></FetchHouseKeepingRoomStatusResponse></soap:Body></soap:Envelope>
+  recorded_at: Sun, 19 Jul 2020 19:01:36 GMT
+recorded_with: VCR 6.0.0
