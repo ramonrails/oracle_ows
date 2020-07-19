@@ -5,6 +5,7 @@ require 'oracle_ows/base'
 require 'oracle_ows/housekeeping'
 require 'oracle_ows/guest_services'
 require 'oracle_ows/information'
+require 'oracle_ows/reservation'
 
 module OracleOws
   class Error < StandardError; end
