@@ -92,5 +92,13 @@ RSpec.describe OracleOws::GuestServices do
         expect(status).to be_a(Hash)
       end
     end
+
+    it 'update room status' do
+      VCR.use_cassette('update_room_status') do
+        status = guest_services.update_room_status(hotel_code: 'POSHIE', room: 1)
+        expect(status).not_to be_blank
+        expect(status).to be_a(Hash)
+      end
+    end
   end
 end

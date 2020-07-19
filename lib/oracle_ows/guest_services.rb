@@ -14,7 +14,8 @@ module OracleOws
       @base = base
       # we need these for HouseKeeping API calls
       guest_services_namespaces = {
-        'xmlns:gue' => 'http://webservices.micros.com/og/4.3/GuestServices/'
+        'xmlns:gue' => 'http://webservices.micros.com/og/4.3/GuestServices/',
+        'xmlns:hot' => 'http://webservices.micros.com/og/4.3/HotelCommon/'
       }
       # merge base + HouseKeeping namespaces
       @namespaces = base.namespaces.merge(guest_services_namespaces)
@@ -26,6 +27,33 @@ module OracleOws
     def namespaces=(hash = {})
       @namespaces ||= {}
       @namespaces.merge!(hash)
+    end
+
+    # action: update room status
+    # Usage:
+    #   update_room_status({ hotel_code: 'ABC', room: 1 })
+    def update_room_status(options = {})
+      return {} if options.blank?
+
+      response = soap_client.call(
+        :update_room_status,
+        message: {
+          'HotelReference' => { '@hotelCode' => options[:hotel_code] },
+          'RoomNumber' => options[:room],
+          'RoomStatus' => 'Clean',
+          'TurnDownStatus' => 'Completed',
+          'GuestServiceStatus' => 'DoNotDisturb'
+        }
+      )
+
+      # fetch the response safely (without exception or too many conditional blocks)
+      response.body.dig(:update_room_status_response, :result)
+
+    # handle exceptions gracefully
+    rescue StandardError => e
+      # handle exception gracefully
+    ensure
+      {} # at least return a blank hash
     end
 
     # action: wake up call
