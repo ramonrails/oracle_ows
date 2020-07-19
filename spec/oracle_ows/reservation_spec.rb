@@ -92,5 +92,13 @@ RSpec.describe OracleOws::Reservation do
         expect(status).to be_a(Hash)
       end
     end
+
+    it 'pre checkin' do
+      VCR.use_cassette('pre_checkin') do
+        status = reservation.pre_checkin(hotel_code: 'POSHIE', chain_code: 'CHAIN', confirmation: 1)
+        expect(status).not_to be_blank
+        expect(status).to be_a(Hash)
+      end
+    end
   end
 end

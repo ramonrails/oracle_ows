@@ -14,7 +14,8 @@ module OracleOws
       @base = base
       # we need these for API calls
       reservation_namespaces = {
-        'xmlns:res' => 'http://webservices.micros.com/ows/5.1/Reservation.wsdl'
+        'xmlns:res' => 'http://webservices.micros.com/ows/5.1/Reservation.wsdl',
+        'xmlns:res1' => 'http://webservices.micros.com/og/4.3/Reservation/'
       }
       # merge base + this API namespaces
       @namespaces = base.namespaces.merge(reservation_namespaces)
@@ -28,9 +29,34 @@ module OracleOws
       @namespaces.merge!(hash)
     end
 
-    # action: hotel reservation
     # Usage:
-    #   hotel_reservation({ hotel_code: 'ABC', type: 'ABC', source: 'ABC' })
+    #   method({ hotel_code: 'ABC', type: 'ABC', source: 'ABC' })
+    def pre_checkin(options = {})
+      return {} if options.blank?
+
+      response = soap_client.call(
+        :pre_checkin,
+        message: {
+          'HotelReference' => {
+            '@hotelCode' => options[:hotel_code],
+            '@chainCode' => options[:chain_code]
+          },
+          'ConfirmationNumber' => options[:confirmation]
+        }
+      )
+
+      # fetch the response safely (without exception or too many conditional blocks)
+      response.body.dig(:pre_checkin_response, :result)
+
+    # handle exceptions gracefully
+    rescue StandardError => e
+      # handle exception gracefully
+    ensure
+      {} # at least return a blank hash
+    end
+
+    # Usage:
+    #   method({ hotel_code: 'ABC', type: 'ABC', source: 'ABC' })
     def fetch_booked_inventory_items(options = {})
       return {} if options.blank?
 
@@ -45,11 +71,11 @@ module OracleOws
       # fetch the response safely (without exception or too many conditional blocks)
       response.body.dig(:fetch_booked_inventory_items_response, :result)
 
-    # # handle exceptions gracefully
-    # rescue StandardError => e
-    #   # handle exception gracefully
-    # ensure
-    #   {} # at least return a blank hash
+    # handle exceptions gracefully
+    rescue StandardError => e
+      # handle exception gracefully
+    ensure
+      {} # at least return a blank hash
     end
 
     # all possible operations (API calls)
