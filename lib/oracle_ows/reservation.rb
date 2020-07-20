@@ -3,8 +3,12 @@
 require 'savon'
 require 'oracle_ows/base'
 
+#
+# OracleOws::Reservation
+#
 module OracleOws
-  # OracleOws::Reservation
+  # [Reservation Web Service]
+  # {https://docs.oracle.com/cd/E90572_01/docs/Reservation%20Web%20Service%20Specifications.htm}
   class Reservation
     attr_accessor :base
     attr_reader :namespaces # writer defined below
@@ -29,8 +33,16 @@ module OracleOws
       @namespaces.merge!(hash)
     end
 
-    # Usage:
-    #   method({ hotel_code: 'ABC', type: 'ABC', source: 'ABC' })
+    #
+    # PreCheckin
+    #
+    # @param [Hash] options of parameters for the API call
+    # @option options [String] :hotel_code to identify the hotel
+    # @option options [String] :chain_code to identify the chain of hotels it belongs to
+    # @option options [String] :confirmation number of the check in
+    #
+    # @return [Hash] result hash from the deeply nested XML response
+    #
     def pre_checkin(options = {})
       return {} if options.blank?
 

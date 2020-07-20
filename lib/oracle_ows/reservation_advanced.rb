@@ -3,12 +3,23 @@
 require 'savon'
 require 'oracle_ows/base'
 
+#
+# OracleOws::ReservationAdvanced
+#
 module OracleOws
-  # OracleOws::ReservationAdvanced
+  # [Reservation Advanced Web Service]
+  # {https://docs.oracle.com/cd/E90572_01/docs/Reservation%20Advanced%20Web%20Service%20Specifications.htm}
   class ReservationAdvanced
+    # @return [OracleOws::Base] ruby object with connection parameters
     attr_accessor :base
+    # @return [Hash] namespaces for header during API call
     attr_reader :namespaces # writer defined below
 
+    #
+    # initialize the object
+    #
+    # @param [OracleOws::Base] base parameters
+    #
     def initialize(base)
       # keep the base for credentials
       @base = base
@@ -25,14 +36,31 @@ module OracleOws
       @operations = []
     end
 
-    # no override. just merge additionally
+    #
+    # namespaces (writer)
+    #
+    # @param [Hash] hash of additional namespaces
+    # @option hash [String] :custom xmlns keys for namespace
+    #
+    # @return [Hash] of all namespaces together in a hash
+    #
     def namespaces=(hash = {})
       @namespaces ||= {}
       @namespaces.merge!(hash)
     end
 
-    # Usage:
-    #   method({ hotel_code: 'ABC' })
+    #
+    # CheckIn
+    #
+    # @param [Hash] options for API call
+    # @option options [String] :hotel_code to identify the hotel
+    # @option options [String] :key_1 Key #1
+    # @option options [String] :key_2 Key #2
+    # @option options [String] :key_3 Key #3
+    # @option options [String] :key_4 Key #4
+    #
+    # @return [Hash] result hash from deeply nested XML Response
+    #
     def checkin(options = {})
       return {} if options.blank?
 
@@ -61,8 +89,18 @@ module OracleOws
       {} # at least return a blank hash
     end
 
-    # Usage:
-    #   method({ hotel_code: 'ABC' })
+    #
+    # CheckOut
+    #
+    # @param [Hash] options for API call
+    # @option options [String] :hotel_code to identify the hotel
+    # @option options [String] :key_1 Key #1
+    # @option options [String] :key_2 Key #2
+    # @option options [String] :key_3 Key #3
+    # @option options [String] :key_4 Key #4
+    #
+    # @return [Hash] result hash from deeply nested XML Response
+    #
     def checkout(options = {})
       return {} if options.blank?
 
@@ -91,7 +129,11 @@ module OracleOws
       {} # at least return a blank hash
     end
 
-    # all possible operations (API calls)
+    #
+    # actions possible on this endpoint
+    #
+    # @return [Array<Symbol>] of all possible actions
+    #
     def operations
       # if we fetched it once, use it as buffer
       return @operations unless @operations.blank?

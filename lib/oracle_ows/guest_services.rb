@@ -3,12 +3,26 @@
 require 'savon'
 require 'oracle_ows/base'
 
+#
+# OracleOws::GuestServices
+#
 module OracleOws
-  # OracleOws::GuestServices
+  #
+  # [Guest Services Web Service]
+  # {https://docs.oracle.com/cd/E90572_01/docs/Guest%20Services%20Web%20Service%20Specification.htm}
+  #
   class GuestServices
+    # @return [OracleOws::Base] base class object holds connection parameters
     attr_accessor :base
-    attr_reader :namespaces # writer defined below
+    # @return [Hash] XML namesspaces as hash
+    # {#namespaces=} writer method adds more namespaces to the hash
+    attr_reader :namespaces
 
+    #
+    # Initialize parameters into usage attributes
+    #
+    # @param [OracleOws::Base] base object with connection parameters
+    #
     def initialize(base)
       # keep the base for credentials
       @base = base
@@ -23,25 +37,44 @@ module OracleOws
       @operations = []
     end
 
-    # no override. just merge additionally
+    
+    #
+    # Merges existing namespaces hash with additional values
+    #
+    # @param [Hash] hash of XML namespaces to be used additionally
+    #
+    # @return [Hash] hash of all namespaces merged together
+    #
     def namespaces=(hash = {})
       @namespaces ||= {}
       @namespaces.merge!(hash)
     end
 
-    # action: update room status
-    # Usage:
-    #   update_room_status({ hotel_code: 'ABC', room: 1 })
+    #
+    # Update Room Status
+    #
+    # @param [Hash] options to update the room status
+    # @option options [String] :hotel_code code of the hotel
+    # @option options [Numeric, String] :room number to update
+    #
+    # @return [Hash] result hash extracted from the deply nested XML
+    #
     def update_room_status(options = {})
+      # save resources if we have nothing to do
       return {} if options.blank?
 
+      # make the SOAP API call
       response = soap_client.call(
+        # endpoint action
         :update_room_status,
+        # payload
         message: {
-          'HotelReference' => { '@hotelCode' => options[:hotel_code] },
-          'RoomNumber' => options[:room],
-          'RoomStatus' => 'Clean',
-          'TurnDownStatus' => 'Completed',
+          'HotelReference'     => {
+            '@hotelCode' => options[:hotel_code]
+          },
+          'RoomNumber'         => options[:room],
+          'RoomStatus'         => 'Clean',
+          'TurnDownStatus'     => 'Completed',
           'GuestServiceStatus' => 'DoNotDisturb'
         }
       )
@@ -56,9 +89,15 @@ module OracleOws
       {} # at least return a blank hash
     end
 
-    # action: wake up call
-    # Usage:
-    #   wake_up_call({ hotel_code: 'ABC', room: 1 })
+    #
+    # Wake Up Call
+    #
+    # @param [Hash] options parameters
+    # @option options [String] :hotel_code is the code of the hotel
+    # @option options [Numeric, String] :room number
+    #
+    # @return [Hash] result hash from the deeply nested XML response
+    #
     def wake_up_call(options = {})
       return {} if options.blank?
 
@@ -80,7 +119,11 @@ module OracleOws
       {} # at least return a blank hash
     end
 
-    # all possible operations (API calls)
+    #
+    # Operations possible on this endpoint
+    #
+    # @return [Array<Symbol>] method calls that can be made
+    #
     def operations
       # if we fetched it once, use it as buffer
       return @operations unless @operations.blank?
@@ -92,6 +135,7 @@ module OracleOws
       client = soap_client
       return [] unless client.globals[:wsdl].to_s.strip.match?('^https?://')
 
+      # memoization
       @operations = client&.operations
 
     # WARN: external API. handle with care.
@@ -106,8 +150,11 @@ module OracleOws
 
     private
 
-      # always fetch the latest SOAP client
-      #   * updated credentials and namespaces
+      #
+      # soap client object to make API calls
+      #
+      # @return [Savon::Client] client object ready to make calls
+      #
       def soap_client
         # authentication
         credentials = { 'cor:UserName' => base.username, 'cor:UserPassword' => base.password }

@@ -76,12 +76,7 @@ RSpec.describe OracleOws::Housekeeping do
   end
 
   context 'API calls to fetch data' do
-    let(:options) do
-      {
-        url: 'http://130.61.16.108:8080/OWS_WS_51',
-        username: 'SUPERVISOR', password: 'OPERA_1234'
-      }
-    end
+    let(:options) { { url: ENV['URL'], username: ENV['USERNAME'], password: ENV['PASSWORD'] } }
     let(:base)         { OracleOws::Base.new(options) }
     let(:housekeeping) { OracleOws::Housekeeping.new(base) }
 

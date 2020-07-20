@@ -3,11 +3,18 @@
 require 'savon'
 require 'oracle_ows/base'
 
+#
+# OracleOws::Housekeeping
+#
 module OracleOws
-  # OracleOws::Housekeeping
+  # [Housekeeping Web Service]
+  # {https://docs.oracle.com/cd/E90572_01/docs/Housekeeping%20Web%20Service%20Specifications.htm}
   class Housekeeping
+    # @return [OracleOws::Base] base object with connection attributes
     attr_accessor :base
-    attr_reader :namespaces # writer defined below
+    # @return [Hash] hash of XML namespaces for headers in SOAP API call
+    # {#namespaces=} merges any additional namespaces into this hash
+    attr_reader :namespaces
 
     def initialize(base)
       # keep the base for credentials
@@ -23,15 +30,29 @@ module OracleOws
       @operations = []
     end
 
-    # no override. just merge additionally
+    #
+    # writer method to merge any additional namespaces into single hash
+    #
+    # @param [Hash] hash of namespaces to merge
+    #
+    # @return [Hash] of all namespaces merged into single hash
+    #
     def namespaces=(hash = {})
       @namespaces ||= {}
       @namespaces.merge!(hash)
     end
 
-    # action: fetch status of the room
-    # Usage:
-    #   room_status({ hotel_code: 'ABC', room: { from: 1, to: 2 } })
+    #
+    # FetchHouseKeepingRoomStatus
+    #
+    # @param [Hash] options with parameters
+    # @option options [String] :hotel_code is the identifier for the hotel
+    # @option options [Hash] :room a hash of :from and :to parameters
+    # @option options [Symbol] :from parameter in :room => { :from => 1 }
+    # @option options [Symbol] :to parameter in :room => { :to => 1 }
+    #
+    # @return [Hash] of the result from deeply nested XML response
+    #
     def room_status(options = {})
       return {} if options.blank?
 
@@ -60,7 +81,11 @@ module OracleOws
       {} # at least return a blank hash
     end
 
-    # all possible operations (API calls)
+    #
+    # operations possible on this endpoint
+    #
+    # @return [Array<Symbol>] of all the actions available at this API endpoint
+    #
     def operations
       # if we fetched it once, use it as buffer
       return @operations unless @operations.blank?
@@ -86,8 +111,11 @@ module OracleOws
 
     private
 
-      # always fetch the latest SOAP client
-      #   * updated credentials and namespaces
+      #
+      # SOAP client object to make API calls
+      #
+      # @return [Savon::Client] ruby object for the endpoint
+      #
       def soap_client
         # authentication
         credentials = { 'cor:UserName' => base.username, 'cor:UserPassword' => base.password }

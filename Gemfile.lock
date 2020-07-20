@@ -18,6 +18,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
     ffi (1.13.1)
     formatador (0.2.5)
     guard (2.16.2)
@@ -103,6 +104,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv (~> 2.7.6)
   guard (~> 2.16)
   guard-rspec (~> 4.7)
   oracle_ows!

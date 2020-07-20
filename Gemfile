@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in oracle_ows.gemspec
 gemspec
 
+gem 'dotenv', '~> 2.7.6'
 gem 'guard', '~> 2.16'
 gem 'guard-rspec', '~> 4.7'
 gem 'pry', '~> 0.13.1'

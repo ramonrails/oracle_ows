@@ -3,12 +3,23 @@
 require 'savon'
 require 'oracle_ows/base'
 
+#
+# OracleOws::Information
+#
 module OracleOws
-  # OracleOws::Information
+  # [Information Web Service]
+  # {https://docs.oracle.com/cd/E90572_01/docs/Information%20Web%20Service%20Specifications.htm}
   class Information
+    # @return [OracleOws::Base] base object with connection paremeters
     attr_accessor :base
+    # @return [Hash] XML namespaces for SOAP API
     attr_reader :namespaces # writer defined below
 
+    #
+    # initialize the API endpoint object
+    #
+    # @param [OracleOws::Base] base object with initial parameters
+    #
     def initialize(base)
       # keep the base for credentials
       @base = base
@@ -22,7 +33,13 @@ module OracleOws
       @operations = []
     end
 
-    # no override. just merge additionally
+    #
+    # namespaces (writer) merges additional namespaces into existing ones
+    #
+    # @param [Hash] hash of XML namespaces
+    #
+    # @return [Hash] of all namespaces into single hash
+    #
     def namespaces=(hash = {})
       @namespaces ||= {}
       @namespaces.merge!(hash)
@@ -51,7 +68,11 @@ module OracleOws
       {} # at least return a blank hash
     end
 
-    # all possible operations (API calls)
+    #
+    # actions possible on this API endpoint
+    #
+    # @return [Array<Symbol>] array of symbolised actions
+    #
     def operations
       # if we fetched it once, use it as buffer
       return @operations unless @operations.blank?
