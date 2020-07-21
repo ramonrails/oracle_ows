@@ -1,34 +1,26 @@
 # frozen_string_literal: true
 
-RSpec.describe OracleOws::Reservation do
-  let(:options)      { { username: 'test_username', password: 'test_password' } }
-  let(:base)         { OracleOws::Base.new(options) }
-  let(:reservation) { OracleOws::Reservation.new(base) }
+RSpec.describe OracleOWS::Reservation do
+  let(:base_namespaces_keys) { %w[xmlns:env xmlns:cor] }
+  let(:options) { { username: 'test_username', password: 'test_password' } }
+  let(:reservation) { OracleOWS::Reservation.new(options) }
 
   it 'has OracleOws::Reservation class' do
-    expect(OracleOws::Reservation).not_to be_nil
+    expect(OracleOWS::Reservation).not_to be_nil
   end
 
   context 'OracleOws::Base' do
-    it 'base config picked up' do
-      expect(reservation.base).to be(base)
-    end
-
     it 'namespaces picked up' do
-      expect(reservation.namespaces.keys).to include(*base.namespaces.keys)
+      expect(reservation.namespaces.keys).to include(*base_namespaces_keys)
     end
 
     it 'username picked up' do
-      expect(reservation.base.username).to eql 'test_username'
+      expect(reservation.username).to eql 'test_username'
     end
 
     it 'password picked up' do
-      expect(reservation.base.password).to eql 'test_password'
+      expect(reservation.password).to eql 'test_password'
     end
-  end
-
-  it 'a list of possible operations' do
-    expect(reservation.operations).to be_an(Array)
   end
 
   it 'keeps namespaces from base + additional' do
@@ -77,8 +69,7 @@ RSpec.describe OracleOws::Reservation do
 
   context 'API calls to fetch data' do
     let(:options) { { url: ENV['URL'], username: ENV['USERNAME'], password: ENV['PASSWORD'] } }
-    let(:base) { OracleOws::Base.new(options) }
-    let(:reservation) { OracleOws::Reservation.new(base) }
+    let(:reservation) { OracleOWS::Reservation.new(options) }
 
     it 'fetch booked inventory items' do
       VCR.use_cassette('fetch_booked_inventory_items') do

@@ -1,28 +1,23 @@
 # frozen_string_literal: true
 
-require 'savon'
 require 'oracle_ows/base'
 
 #
 # OracleOws::ReservationAdvanced
 #
-module OracleOws
+module OracleOWS
   # [Reservation Advanced Web Service]
   # {https://docs.oracle.com/cd/E90572_01/docs/Reservation%20Advanced%20Web%20Service%20Specifications.htm}
-  class ReservationAdvanced
-    # @return [OracleOws::Base] ruby object with connection parameters
-    attr_accessor :base
-    # @return [Hash] namespaces for header during API call
-    attr_reader :namespaces # writer defined below
-
+  class ResvAdvanced < Base
     #
     # initialize the object
     #
     # @param [OracleOws::Base] base parameters
     #
-    def initialize(base)
-      # keep the base for credentials
-      @base = base
+    def initialize(options = {})
+      # call the parent method, all arguments passed
+      super
+
       # we need these for API calls
       more_namespaces = {
         'xmlns:rsa' => 'http://webservices.micros.com/og/4.3/ResvAdvanced/',
@@ -30,23 +25,8 @@ module OracleOws
         'xmlns:hot' => 'http://webservices.micros.com/og/4.3/HotelCommon/',
         'xmlns:res' => 'http://webservices.micros.com/og/4.3/Reservation/'
       }
-      # merge base + this API namespaces
-      @namespaces = base.namespaces.merge(more_namespaces)
-      # we will use this as a buffer
-      @operations = []
-    end
-
-    #
-    # namespaces (writer)
-    #
-    # @param [Hash] hash of additional namespaces
-    # @option hash [String] :custom xmlns keys for namespace
-    #
-    # @return [Hash] of all namespaces together in a hash
-    #
-    def namespaces=(hash = {})
-      @namespaces ||= {}
-      @namespaces.merge!(hash)
+      # merge base + additional namespaces
+      @namespaces.merge!(more_namespaces)
     end
 
     #
@@ -128,51 +108,6 @@ module OracleOws
     ensure
       {} # at least return a blank hash
     end
-
-    #
-    # actions possible on this endpoint
-    #
-    # @return [Array<Symbol>] of all possible actions
-    #
-    def operations
-      # if we fetched it once, use it as buffer
-      return @operations unless @operations.blank?
-
-      # NOTE: invalid WSDL URL? better safe than sorry with exception
-      #   * check http, https
-      #   * must be beginning of the string
-      #   * to_s + strip, just in case :)
-      client = soap_client
-      return [] unless client.globals[:wsdl].to_s.strip.match?('^https?://')
-
-      @operations = client&.operations
-
-    # WARN: external API. handle with care.
-    rescue Errno::ENOENT => e
-      # malformatted URL. probably the URL or the path is incorrect
-    rescue StandardError => e
-      # handle all other exceptions gracefully
-    ensure
-      # keep the buffer blank. attempt to fetch again next time
-      @operations = []
-    end
-
-    private
-
-      # always fetch the latest SOAP client
-      #   * updated credentials and namespaces
-      def soap_client
-        # authentication
-        credentials = { 'cor:UserName' => base.username, 'cor:UserPassword' => base.password }
-        # required SOAP header
-        soap_header = { 'cor:OGHeader' => { 'cor:Authentication' => { 'cor:UserCredentials' => credentials } } }
-        # logging options
-        log_options = { log_level: :debug, log: true, pretty_print_xml: true }
-        # options
-        options = { wsdl: "#{base.url}/ResvAdvanced.asmx?WSDL", namespaces: namespaces, soap_header: soap_header }
-        # SOAP client
-        Savon.client(options.merge(log_options))
-      end
   end
   # class
 end

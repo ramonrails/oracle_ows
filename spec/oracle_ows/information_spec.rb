@@ -1,34 +1,26 @@
 # frozen_string_literal: true
 
-RSpec.describe OracleOws::Information do
-  let(:options)      { { username: 'test_username', password: 'test_password' } }
-  let(:base)         { OracleOws::Base.new(options) }
-  let(:information) { OracleOws::Information.new(base) }
+RSpec.describe OracleOWS::Information do
+  let(:base_namespaces_keys) { %w[xmlns:env xmlns:cor] }
+  let(:options) { { username: 'test_username', password: 'test_password' } }
+  let(:information) { OracleOWS::Information.new(options) }
 
   it 'has OracleOws::Information class' do
-    expect(OracleOws::Information).not_to be_nil
+    expect(OracleOWS::Information).not_to be_nil
   end
 
   context 'OracleOws::Base' do
-    it 'base config picked up' do
-      expect(information.base).to be(base)
-    end
-
     it 'namespaces picked up' do
-      expect(information.namespaces.keys).to include(*base.namespaces.keys)
+      expect(information.namespaces.keys).to include(*base_namespaces_keys)
     end
 
     it 'username picked up' do
-      expect(information.base.username).to eql 'test_username'
+      expect(information.username).to eql 'test_username'
     end
 
     it 'password picked up' do
-      expect(information.base.password).to eql 'test_password'
+      expect(information.password).to eql 'test_password'
     end
-  end
-
-  it 'a list of possible operations' do
-    expect(information.operations).to be_an(Array)
   end
 
   it 'keeps namespaces from base + additional' do
@@ -77,8 +69,7 @@ RSpec.describe OracleOws::Information do
 
   context 'API calls to fetch data' do
     let(:options) { { url: ENV['URL'], username: ENV['USERNAME'], password: ENV['PASSWORD'] } }
-    let(:base) { OracleOws::Base.new(options) }
-    let(:information) { OracleOws::Information.new(base) }
+    let(:information) { OracleOWS::Information.new(options) }
 
     it 'hotel information' do
       VCR.use_cassette('hotel_information') do

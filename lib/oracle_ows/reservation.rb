@@ -1,36 +1,30 @@
 # frozen_string_literal: true
 
-require 'savon'
 require 'oracle_ows/base'
 
 #
 # OracleOws::Reservation
 #
-module OracleOws
+module OracleOWS
   # [Reservation Web Service]
   # {https://docs.oracle.com/cd/E90572_01/docs/Reservation%20Web%20Service%20Specifications.htm}
-  class Reservation
-    attr_accessor :base
-    attr_reader :namespaces # writer defined below
+  class Reservation < Base
+    #
+    # initialize
+    #
+    # @param [Hash] options for connection
+    #
+    def initialize(options = {})
+      # call the parent method, all arguments passed
+      super
 
-    def initialize(base)
-      # keep the base for credentials
-      @base = base
       # we need these for API calls
-      reservation_namespaces = {
+      more_namespaces = {
         'xmlns:res' => 'http://webservices.micros.com/ows/5.1/Reservation.wsdl',
         'xmlns:res1' => 'http://webservices.micros.com/og/4.3/Reservation/'
       }
       # merge base + this API namespaces
-      @namespaces = base.namespaces.merge(reservation_namespaces)
-      # we will use this as a buffer
-      @operations = []
-    end
-
-    # no override. just merge additionally
-    def namespaces=(hash = {})
-      @namespaces ||= {}
-      @namespaces.merge!(hash)
+      @namespaces.merge!(more_namespaces)
     end
 
     #
@@ -89,47 +83,6 @@ module OracleOws
     ensure
       {} # at least return a blank hash
     end
-
-    # all possible operations (API calls)
-    def operations
-      # if we fetched it once, use it as buffer
-      return @operations unless @operations.blank?
-
-      # NOTE: invalid WSDL URL? better safe than sorry with exception
-      #   * check http, https
-      #   * must be beginning of the string
-      #   * to_s + strip, just in case :)
-      client = soap_client
-      return [] unless client.globals[:wsdl].to_s.strip.match?('^https?://')
-
-      @operations = client&.operations
-
-    # WARN: external API. handle with care.
-    rescue Errno::ENOENT => e
-      # malformatted URL. probably the URL or the path is incorrect
-    rescue StandardError => e
-      # handle all other exceptions gracefully
-    ensure
-      # keep the buffer blank. attempt to fetch again next time
-      @operations = []
-    end
-
-    private
-
-      # always fetch the latest SOAP client
-      #   * updated credentials and namespaces
-      def soap_client
-        # authentication
-        credentials = { 'cor:UserName' => base.username, 'cor:UserPassword' => base.password }
-        # required SOAP header
-        soap_header = { 'cor:OGHeader' => { 'cor:Authentication' => { 'cor:UserCredentials' => credentials } } }
-        # logging options
-        log_options = { log_level: :debug, log: true, pretty_print_xml: true }
-        # options
-        options = { wsdl: "#{base.url}/Reservation.asmx?WSDL", namespaces: namespaces, soap_header: soap_header }
-        # SOAP client
-        Savon.client(options.merge(log_options))
-      end
   end
   # class
 end

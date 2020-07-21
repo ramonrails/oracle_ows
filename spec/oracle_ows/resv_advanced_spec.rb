@@ -1,34 +1,26 @@
 # frozen_string_literal: true
 
-RSpec.describe OracleOws::ReservationAdvanced do
-  let(:options)      { { username: 'test_username', password: 'test_password' } }
-  let(:base)         { OracleOws::Base.new(options) }
-  let(:reservation_advanced) { OracleOws::ReservationAdvanced.new(base) }
+RSpec.describe OracleOWS::ResvAdvanced do
+  let(:base_namespaces_keys) { %w[xmlns:env xmlns:cor] }
+  let(:options) { { username: 'test_username', password: 'test_password' } }
+  let(:reservation_advanced) { OracleOWS::ResvAdvanced.new(options) }
 
-  it 'has OracleOws::ReservationAdvanced class' do
-    expect(OracleOws::ReservationAdvanced).not_to be_nil
+  it 'has OracleOws::ResvAdvanced class' do
+    expect(OracleOWS::ResvAdvanced).not_to be_nil
   end
 
   context 'OracleOws::Base' do
-    it 'base config picked up' do
-      expect(reservation_advanced.base).to be(base)
-    end
-
     it 'namespaces picked up' do
-      expect(reservation_advanced.namespaces.keys).to include(*base.namespaces.keys)
+      expect(reservation_advanced.namespaces.keys).to include(*base_namespaces_keys)
     end
 
     it 'username picked up' do
-      expect(reservation_advanced.base.username).to eql 'test_username'
+      expect(reservation_advanced.username).to eql 'test_username'
     end
 
     it 'password picked up' do
-      expect(reservation_advanced.base.password).to eql 'test_password'
+      expect(reservation_advanced.password).to eql 'test_password'
     end
-  end
-
-  it 'a list of possible operations' do
-    expect(reservation_advanced.operations).to be_an(Array)
   end
 
   it 'keeps namespaces from base + additional' do
@@ -77,8 +69,7 @@ RSpec.describe OracleOws::ReservationAdvanced do
 
   context 'API calls to fetch data' do
     let(:options) { { url: ENV['URL'], username: ENV['USERNAME'], password: ENV['PASSWORD'] } }
-    let(:base) { OracleOws::Base.new(options) }
-    let(:reservation_advanced) { OracleOws::ReservationAdvanced.new(base) }
+    let(:reservation_advanced) { OracleOWS::ResvAdvanced.new(options) }
 
     it 'reservation advanced - checkin' do
       VCR.use_cassette('reservation_advanced_checkin') do

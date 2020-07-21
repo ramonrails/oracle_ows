@@ -1,53 +1,32 @@
 # frozen_string_literal: true
 
-require 'savon'
 require 'oracle_ows/base'
 
 #
 # OracleOws::GuestServices
 #
-module OracleOws
+module OracleOWS
   #
   # [Guest Services Web Service]
   # {https://docs.oracle.com/cd/E90572_01/docs/Guest%20Services%20Web%20Service%20Specification.htm}
   #
-  class GuestServices
-    # @return [OracleOws::Base] base class object holds connection parameters
-    attr_accessor :base
-    # @return [Hash] XML namesspaces as hash
-    # {#namespaces=} writer method adds more namespaces to the hash
-    attr_reader :namespaces
+  class GuestServices < Base
+    #
+    # Initialize
+    #
+    # @param [Hash] object with connection parameters
+    #
+    def initialize(options = {})
+      # call the parent method, all arguments passed
+      super
 
-    #
-    # Initialize parameters into usage attributes
-    #
-    # @param [OracleOws::Base] base object with connection parameters
-    #
-    def initialize(base)
-      # keep the base for credentials
-      @base = base
-      # we need these for HouseKeeping API calls
-      guest_services_namespaces = {
+      # we need these for API calls
+      more_namespaces = {
         'xmlns:gue' => 'http://webservices.micros.com/og/4.3/GuestServices/',
         'xmlns:hot' => 'http://webservices.micros.com/og/4.3/HotelCommon/'
       }
-      # merge base + HouseKeeping namespaces
-      @namespaces = base.namespaces.merge(guest_services_namespaces)
-      # we will use this as a buffer
-      @operations = []
-    end
-
-    
-    #
-    # Merges existing namespaces hash with additional values
-    #
-    # @param [Hash] hash of XML namespaces to be used additionally
-    #
-    # @return [Hash] hash of all namespaces merged together
-    #
-    def namespaces=(hash = {})
-      @namespaces ||= {}
-      @namespaces.merge!(hash)
+      # merge base + additional namespaces
+      @namespaces.merge!(more_namespaces)
     end
 
     #
@@ -69,12 +48,12 @@ module OracleOws
         :update_room_status,
         # payload
         message: {
-          'HotelReference'     => {
+          'HotelReference' => {
             '@hotelCode' => options[:hotel_code]
           },
-          'RoomNumber'         => options[:room],
-          'RoomStatus'         => 'Clean',
-          'TurnDownStatus'     => 'Completed',
+          'RoomNumber' => options[:room],
+          'RoomStatus' => 'Clean',
+          'TurnDownStatus' => 'Completed',
           'GuestServiceStatus' => 'DoNotDisturb'
         }
       )
@@ -118,55 +97,6 @@ module OracleOws
     ensure
       {} # at least return a blank hash
     end
-
-    #
-    # Operations possible on this endpoint
-    #
-    # @return [Array<Symbol>] method calls that can be made
-    #
-    def operations
-      # if we fetched it once, use it as buffer
-      return @operations unless @operations.blank?
-
-      # NOTE: invalid WSDL URL? better safe than sorry with exception
-      #   * check http, https
-      #   * must be beginning of the string
-      #   * to_s + strip, just in case :)
-      client = soap_client
-      return [] unless client.globals[:wsdl].to_s.strip.match?('^https?://')
-
-      # memoization
-      @operations = client&.operations
-
-    # WARN: external API. handle with care.
-    rescue Errno::ENOENT => e
-      # malformatted URL. probably the URL or the path is incorrect
-    rescue StandardError => e
-      # handle all other exceptions gracefully
-    ensure
-      # keep the buffer blank. attempt to fetch again next time
-      @operations = []
-    end
-
-    private
-
-      #
-      # soap client object to make API calls
-      #
-      # @return [Savon::Client] client object ready to make calls
-      #
-      def soap_client
-        # authentication
-        credentials = { 'cor:UserName' => base.username, 'cor:UserPassword' => base.password }
-        # required SOAP header
-        soap_header = { 'cor:OGHeader' => { 'cor:Authentication' => { 'cor:UserCredentials' => credentials } } }
-        # logging options
-        log_options = { log_level: :debug, log: true, pretty_print_xml: true }
-        # options
-        options = { wsdl: "#{base.url}/GuestServices.asmx?WSDL", namespaces: namespaces, soap_header: soap_header }
-        # SOAP client
-        Savon.client(options.merge(log_options))
-      end
   end
   # class Hosuekeeping
 end
