@@ -3,6 +3,6 @@
 #
 # Version of this gem
 #
-module OracleOws
-  VERSION = '0.1.0'
+module OracleOWS
+  VERSION = '0.2.0'
 end

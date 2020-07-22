@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   # required attributes
   #
   spec.name          = 'oracle_ows'
-  spec.version       = OracleOws::VERSION
+  spec.version       = OracleOWS::VERSION
   spec.summary       = 'Oracle OWS'
   spec.files         = Dir.glob('lib/**/*') # load everything in lib folder tree
   # # Specify which files should be added to the gem when it is released.

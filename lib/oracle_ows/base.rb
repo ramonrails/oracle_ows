@@ -1,25 +1,18 @@
 # frozen_string_literal: true
 
+require 'savon'
+require 'oracle_ows/common'
+
 #
 # Oracle Hospitality OPERA Web Self-Service
 # (Specifications)[https://docs.oracle.com/cd/E90572_01/index.html]
 #
-module OracleOws
+module OracleOWS
   #
   # OracleOws::Base stores basic parameters to connect to the service
   #
   class Base
-    # @return [String] url => base URL for the API endpoint
-    # @return [String] username => login to use like ENV['ORACLE_OWS_LOGIN']
-    # @return [String] password => password to use like ENV['ORACLE_OWS_PASSWORD']
-    # @return [Hash] namespaces => a hash of XML namespaces for SOAP header
-    #
-    #   Example:
-    #   !{
-    #     'xmlns:env' => 'http://schemas.xmlsoap.org/soap/envelope/',
-    #     'xmlns:cor' => 'http://webservices.micros.com/og/4.3/Core/'
-    #   }
-    attr_accessor :url, :username, :password, :namespaces
+    include OracleOWS::Common
 
     #
     # Instantiates the OracleOWS::Base object
