@@ -43,7 +43,7 @@ module OracleOWS
       response.body.dig(:hotel_information_response, :result)
 
     # handle exceptions gracefully
-    rescue StandardError => e
+    rescue OracleOWS::Error => e
       # handle exception gracefully
     ensure
       {} # at least return a blank hash

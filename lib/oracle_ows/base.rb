@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'savon'
 require 'oracle_ows/common'
 
 #
