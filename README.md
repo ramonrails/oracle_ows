@@ -22,7 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    > options = { url: ENV['URL'], username: ENV['USERNAME'], password: ENV['PASSWORD'] }
+    > info = OracleOWS::Information.new(options)
+    > status = info.hotel_information(hotel_code: ENV['HOTEL_CODE'])
+    > 
+    > # basically returning some value or an error gracefully
+    > => {:text=>{:text_element=>"SYSTEM ERROR", :@xmlns=>"http://webservices.micros.com/og/4.3/Common/"}, :@result_status_flag=>"FAIL"}
 
 ## Development
 
