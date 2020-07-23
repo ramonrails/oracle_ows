@@ -55,7 +55,7 @@ module OracleOWS
       response.body.dig(:pre_checkin_response, :result)
 
     # handle exceptions gracefully
-    rescue StandardError => e
+    rescue OracleOWS::Error => e
       # handle exception gracefully
     ensure
       {} # at least return a blank hash
@@ -78,7 +78,7 @@ module OracleOWS
       response.body.dig(:fetch_booked_inventory_items_response, :result)
 
     # handle exceptions gracefully
-    rescue StandardError => e
+    rescue OracleOWS::Error => e
       # handle exception gracefully
     ensure
       {} # at least return a blank hash

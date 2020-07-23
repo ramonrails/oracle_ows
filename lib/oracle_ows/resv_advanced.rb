@@ -63,7 +63,7 @@ module OracleOWS
       response.body.dig(:check_in_response, :result)
 
     # handle exceptions gracefully
-    rescue StandardError => e
+    rescue OracleOWS::Error => e
       # handle exception gracefully
     ensure
       {} # at least return a blank hash
@@ -103,7 +103,7 @@ module OracleOWS
       response.body.dig(:check_out_response, :result)
 
     # handle exceptions gracefully
-    rescue StandardError => e
+    rescue OracleOWS::Error => e
       # handle exception gracefully
     ensure
       {} # at least return a blank hash

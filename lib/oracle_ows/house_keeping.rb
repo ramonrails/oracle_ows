@@ -62,7 +62,7 @@ module OracleOWS
       response.body.dig(:fetch_house_keeping_room_status_response, :result)
 
     # handle exceptions gracefully
-    rescue StandardError => e
+    rescue OracleOWS::Error => e
       # handle exception gracefully
     ensure
       {} # at least return a blank hash
